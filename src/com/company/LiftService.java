@@ -39,7 +39,7 @@ public class LiftService {
                      while (liftCore.getLiftState() < liftCore.getPriority()){
                          liftCore.increaseLiftState();
                          removePassengersFromLift(liftCore.getLiftState());
-                         unloadPassengers(liftCore.getLiftState());
+                         uploadPassengers(liftCore.getLiftState());
                          print();
 
                      }
@@ -47,7 +47,7 @@ public class LiftService {
                      while (liftCore.getLiftState() > liftCore.getPriority()){
                          liftCore.decreaseLiftState();
                          removePassengersFromLift(liftCore.getLiftState());
-                         unloadPassengers(liftCore.getLiftState());
+                         uploadPassengers(liftCore.getLiftState());
                          print();
 
                      }
@@ -131,7 +131,7 @@ public class LiftService {
 
     }
 
-    private void unloadPassengers(int floor) {
+    private void uploadPassengers(int floor) {
         ArrayList<Integer> passengersInLift = liftCore.getPassengersInLift(), passengersOnFloor = liftCore.getPassengersOnFloor(floor).getAttractive(liftCore.isRise());
         if (passengersInLift.size() < liftCore.LIFTING_CAPACITY) {
             while (passengersInLift.size() < liftCore.LIFTING_CAPACITY && !passengersOnFloor.isEmpty()) {
